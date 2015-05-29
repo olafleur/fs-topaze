@@ -59,6 +59,7 @@
     <None Include="packages.config" />
     <Compile Include="AST.fs" />
     <Compile Include="Parseur.fs" />
+    <Compile Include="Interpreteur.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <PropertyGroup>
