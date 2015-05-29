@@ -17,8 +17,6 @@ let pCommande s = pstringCI s .>> ws
 
 let pAffichage = pCommande "afficher" >>. pChaineEntreGuillemets |>> (fun chaine -> Affichage(chaine))
 
-let testage = test pAffichage "AFFICHER \"Bonjour Mondé\""
-
 let parse (program:string) =    
     match run pAffichage program with
     | Success(result, _, _)   -> result 
