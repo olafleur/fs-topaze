@@ -11,4 +11,3 @@ let evaluerExpression =
         | Initialisation_Chaine (nom, valeur) -> créer nom valeur
         | Affichage (message) -> printfn "%s" message
     evalInterieur
-

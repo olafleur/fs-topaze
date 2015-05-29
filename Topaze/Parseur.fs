@@ -15,8 +15,11 @@ let pChaineEntreGuillemets = pstring "\"" >>. many1Satisfy estChaine .>> pstring
 
 let pCommande s = pstringCI s .>> ws
 
-let affichage = pCommande "afficher" >>. pChaineEntreGuillemets 
+let pAffichage = pCommande "afficher" >>. pChaineEntreGuillemets |>> (fun chaine -> Affichage(chaine))
 
-let testage = test affichage "AFFICHER \"Bonjour Mondé\""
+let testage = test pAffichage "AFFICHER \"Bonjour Mondé\""
 
-
+let parse (program:string) =    
+    match run pAffichage program with
+    | Success(result, _, _)   -> result 
+    | Failure(errorMsg, e, s) -> failwith errorMsg
